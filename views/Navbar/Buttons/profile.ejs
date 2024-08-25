@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 1000;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .dropdown-menu.show {
+            display: block;
+        }
+        .dropdown-menu .dropdown-item {
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+            color: black;
+        }
+        .dropdown-menu .dropdown-item:hover {
+            background-color: #f0f0f0;
+        }
+        .navbar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-item {
+            position: relative;
+        }
+        .text-black {
+        color: black;
+    }
+    </style>
+    <title>Dropdown Test</title>
+</head>
+<body>
+    <div class="profile">
+        <div class="container-fluid profile">
+            <ul class="navbar-nav">
+                <!-- Avatar -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center Size text-black" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <img src="\Images\Profile\user.png" class="rounded-circle" height="35px" alt="Profile Icon" loading="lazy" style="margin-right: 8px;" />
+                        <%= userData.name %>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/Dashboard">Dashboard</a></li>
+                        <!-- <li><a class="dropdown-item" href="#">Settings</a></li> -->
+                        <li><a id="logoutBtn" class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileLink = document.querySelector('.nav-link.dropdown-toggle');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            profileLink.addEventListener('click', function(event) {
+                event.preventDefault();  // Prevent the default action of the link
+                dropdownMenu.classList.toggle('show');
+            });
+            
+            // Close the dropdown menu if clicking outside
+            document.addEventListener('click', function(event) {
+                if (!profileLink.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

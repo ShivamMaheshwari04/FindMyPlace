@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Website Design</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Bootstrap 5 CDN Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Custom File's Link -->
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive-style.css"> -->
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Navbar section -->
+    <header class="header_wrapper">
+         <!-- Navbar Start  -->
+         <%- include('./Navbar/navbar.ejs', { isLoggedIn : isLoggedIn}) %>
+        <!-- navbar Here -->
+
+    </header>
+    <!-- Navbar section exit -->
+
+    <!-- Banner section -->
+    <section id="home" class="banner_wrapper p-0">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url(images/Images-Use/Banner/header.jpg);">
+                    <div class="slide-caption text-center">
+                        <div>
+                            <h1>welcome to <span style="color: rgb(253, 14, 213);">FIND MY PLACE</span></h1>
+                            <p>Your trusted partner in finding the perfect PG accommodation tailored to your needs! </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url(images/Images-Use/Banner/Banner-3.jpeg);">
+                    <div class="slide-caption text-center">
+                        <div>
+                            <h1>welcome to <span style="color:#caa169;">FIND MY PLACE</span></h1>
+                            <p>Your trusted partner in finding the perfect PG accommodation tailored to your needs!  </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Booking Section  -->
+        <!-- <div class="container booking-area">
+            <form class="row">
+                <div class="col-lg mb-3 mb-lg-0">
+                    <input type="date" class="form-control" placeholder="Date">
+                </div>
+                <div class="col-lg mb-3 mb-lg-0">
+                    <input type="date" class="form-control" placeholder="Date">
+                </div>
+                <div class="col-lg mb-3 mb-lg-0">
+                    <select class="form-select">
+                        <option selected>Adults</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div class="col-lg mb-3 mb-lg-0">
+                    <select class="form-select">
+                        <option selected>Children</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div class="col-lg mb-3 mb-lg-0">
+                    <button type="submit" class="main-btn rounded-2 px-lg-3">Check Availability</button>
+                </div>
+            </form>
+        </div> -->
+    </section>
+    <!-- Banner section exit -->
+
+    <!-- About section -->
+    <section id="about" class="about_wrapper">
+        <div class="container">
+            <div class="row flex-lg-row flex-column-reverse ">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h3><span>About Us <br class="d-none d-lg-block">
+                            </span></h3>
+                    <p>We are a set of well-selected and chosen Paying Guest services. This is a platform where those, who are willing to open their homes to guests, meet the people looking for wonderful homes to stay in and not have to look for hotels or favors in any city for their long stays. We ensure the places listed and the people looking for a stay are selected based on careful filtering criteria so that both parties benefit and the safety of all involved persons is ensured. </p>
+                    <p>We know how important a safe home is to you at both ends of the deal and that is a promise we make.</p>
+                    <a href="#" class="main-btn mt-4 ">Explore</a>
+                </div>
+                <div class="col-lg-6 mb-4 mb-lg-0 ps-lg-4 text-center">
+                    <!-- <img decoding="async" src="images/about-img.svg"  -->
+                    <img decoding="async" src="images/Images-Use/Banner/about.jpg"class="img-fluid" alt="About Us">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- About section exit -->
+         <!-- Pricing section -->
+    <section id="price" class="price_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>Best & Amazing Categories for you</h6>
+                    <h3>Our Categories</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="card p-4 text-center rounded-3">
+                        <h5 class="text-decoration-underline mb-4">Male PG</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Wifi</p>
+                            </li>
+                            <li>
+                                <p>24/7 security</p>
+                            </li>
+                            <li>
+                                <p>Flexible rent plans</p>
+                            </li>
+                            <li>
+                                <p>Safe and well-maintained</p>
+                            </li>
+                        </ul>
+                        <hr />
+                        <!-- <h3>$150<sub class="fs-6 fw-normal">/NIGHT</sub></h3> -->
+                        <a href="#" class="main-btn">View Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card p-4 text-center rounded-3">
+                        <h5 class="text-decoration-underline mb-4">Female PG</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Wifi</p>
+                            </li>
+                            <li>
+                                <p>24/7 security</p>
+                            </li>
+                            <li>
+                                <p>Flexible rent plans</p>
+                            </li>
+                            <li>
+                                <p>Safe and well-maintained</p>
+                            </li>
+                        </ul>
+                        <hr />
+                        <!-- <h3>$150<sub class="fs-6 fw-normal">/NIGHT</sub></h3> -->
+                        <a href="#" class="main-btn">View Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card p-4 text-center rounded-3">
+                        <h5 class="text-decoration-underline mb-4">Unisex PG</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Wifi</p>
+                            </li>
+                            <li>
+                                <p>24/7 security</p>
+                            </li>
+                            <li>
+                                <p>Flexible rent plans</p>
+                            </li>
+                            <li>
+                                <p>Safe and well-maintained</p>
+                            </li>
+                        </ul>
+                        <hr />
+                        <!-- <h3>$150<sub class="fs-6 fw-normal">/NIGHT</sub></h3> -->
+                        <a href="#" class="main-btn">View Now</a>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-4 text-center rounded-3">
+                        <h5 class="text-decoration-underline mb-4">Economic</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Flight Ticket(2)</p>
+                            </li>
+                            <li>
+                                <p>Music Concert (30% Off)</p>
+                            </li>
+                            <li>
+                                <p>Restaurant (Snacks)</p>
+                            </li>
+                            <li>
+                                <p>Face Make(No)</p>
+                            </li>
+                        </ul>
+                        <hr />
+                        <h3>$150<sub class="fs-6 fw-normal">/NIGHT</sub></h3>
+                        <a href="#" class="main-btn">Sign Up</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms section -->
+    <section id="rooms" class="rooms_wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>What I can do for you</h6>
+                    <h3>Featured Rooms You'll Love</h3>
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-md-4 mb-4 mb-lg-0">
+                    <div class="room-item">
+                        <img decoding="async" src="images/Images-Use/rooms/room-3.jpg" class="img-fluid">
+                        <div class="room-item-wrap">
+                            <div class="room-content">
+                                <h5 class="text-white mb-lg-5 text-decoration-underline">Shantanu PG</h5>
+                                <p class="text-white">Discover five of our favourite dresses from our new collection that
+                                    are destined to be worn and loved immediately</p>
+                                <p class="text-white fw-bold mt-lg-4">Rs. 10000 / Per Month</p>
+                                <a class="main-btn border-white text-white mt-lg-5" href="#">Book now</a>
+                            </div>
+                        </div> 
+                    </div> 
+                </div>
+                <div class="col-md-4 mb-4 mb-lg-0">
+                    <div class="room-item">
+                        <img src="images/Images-Use/rooms/room-2.jpg" class="img-fluid">
+                        <div class="room-item-wrap">
+                            <div class="room-content">
+                                <h5 class="text-white mb-lg-5 text-decoration-underline">Laxmi PG</h5>
+                                <p class="text-white">Discover five of our favourite dresses from our new collection that
+                                    are destined to be worn and loved immediately</p>
+                                <p class="text-white fw-bold mt-lg-4">Rs. 12000 / Per Month</p>
+                                <a class="main-btn border-white text-white mt-lg-5" href="#">Book now</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-md-4 mb-4 mb-lg-0">
+                    <div class="room-item">
+                        <img decoding="async" src="images/Images-Use/rooms/room-1.jpg" class="img-fluid">
+                        <div class="room-item-wrap">
+                            <div class="room-content">
+                                <h5 class="text-white mb-lg-5 text-decoration-underline">Shivaay PG</h5>
+                                <p class="text-white">Discover five of our favourite dresses from our new collection that
+                                    are destined to be worn and loved immediately</p>
+                                <p class="text-white fw-bold mt-lg-4">Rs. 15000 / Per Month</p>
+                                <a class="main-btn border-white text-white mt-lg-5" href="#">Book now</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Rooms Section Exit -->
+
+    <!-- Services section -->
+    <section id="services" class="services_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>We Are Here For You</h6>
+                    <h3>Our Awesome Services</h3>
+                </div>
+            </div>
+            <div class="row align-items-center service-item-wrap">
+                <div class="col-lg-7 p-lg-0">
+                    <!--Service Area Start-->
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active show" id="spa" role="tabpanel">
+                            <img decoding="async" src="images/services/service1.webp" alt="">
+                        </div>
+                        <div class="tab-pane fade" id="restaurent" role="tabpanel">
+                            <img decoding="async" src="images/services/service2.webp" alt="">
+                        </div>
+                        <div class="tab-pane fade" id="swimming" role="tabpanel">
+                            <img decoding="async" src="images/services/service3.webp" alt="">
+                        </div>
+                        <div class="tab-pane fade" id="conference" role="tabpanel">
+                            <img decoding="async" src="services/service6.webp" alt="">
+                        </div>
+                    </div>
+                    <!--Service Area End-->
+                </div>
+                <div class="col-lg-5 position-relative">
+                    <!--Service Tab Menu Area Start-->
+                    <div class="service-menu-area">
+                        <ul class="nav">
+                            <li>
+                                <a data-bs-toggle="tab" href="#spa" class="active">
+                                    <span class="service-icon">
+                                        <img decoding="async" src="./images/services/service-icon1.webp" alt="">
+                                    </span>
+                                    <h5>Detailed PG's Information</h5>
+                                    <p><span>PG Profiles </span>
+                                    Information on cancellation policies,including photos,amenities </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="tab" href="#restaurent">
+                                    <span class="service-icon">
+                                        <img decoding="async" src="./images/services/service-icon2.webp" alt="">
+                                    </span>
+                                    <h5>Booking</h5>
+                                    <p><span>Instant Booking</span>: Ability to book a room directly through the website.
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="tab" href="#swimming">
+                                    <span class="service-icon">
+                                        <img decoding="async" src="./images/services/service-icon3.webp" alt="">
+                                    </span>
+                                    <h5>Safety and Security</h5>
+                                    <p><span>Verified Listings</span> All the places are often verified by the platform to ensure safety and quality standards.
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="tab" href="#conference">
+                                    <span class="service-icon">
+                                        <img decoding="async" src="./images/services/service-icon4.webp" alt="">
+                                    </span>
+                                    <h5>Customer Support </h5>
+                                    <p><span>24/7 Customer Service</span> Access to customer support through chat, email, or phone for assistance with bookings or issues.
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Service Tab Menu Area End-->
+                </div>
+            </div>
+        </div>
+        <div class="counter mt-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+                        <h1>
+                            <span id="count1"></span>+
+                        </h1>
+                        <p>Registered Owners</p>
+                    </div>
+                    <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+                        <h1>
+                            <span id="count2"></span>+
+                            </h2>
+                            <p>Registered Users</p>
+                    </div>
+                    <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+                        <h1>
+                            <span id="count3"></span>+
+                            </h2>
+                            <p>Listed PG's</p>
+                    </div>
+                    <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+                        <h1>
+                            <span id="count4"></span>+
+                            </h2>
+                            <p>Total Visitors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services section Exit -->
+
+    <!-- Team section -->
+    <!-- <section id="team" class="team_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>What I can do for you</h6>
+                    <h3>Our Special Staff</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-0 rounded-3">
+                        <img decoding="async" src="images/team/team1.webp" class="img-fluid rounded-3" />
+                        <div class="team-info">
+                            <h5>Shirley Gibson</h5>
+                            <p>Manager</p>
+                            <ul class="social-network">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-0 rounded-3">
+                        <img decoding="async" src="images/team/team2.webp" class="img-fluid rounded-3" />
+                        <div class="team-info">
+                            <h5>Ronald Long</h5>
+                            <p>Chif Reciption Officer</p>
+                            <ul class="social-network">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-0 rounded-3">
+                        <img decoding="async" src="images/team/team3.webp" class="img-fluid rounded-3" />
+                        <div class="team-info">
+                            <h5>Ashley Sanchez</h5>
+                            <p>Master Chef</p>
+                            <ul class="social-network">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-0 rounded-3">
+                        <img decoding="async" src="images/team/team4.webp" class="img-fluid rounded-3" />
+                        <div class="team-info">
+                            <h5>Jessica Watson</h5>
+                            <p>Housekeeping</p>
+                            <ul class="social-network">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    Team Section Exit  -->
+
+    <!-- Gallery section -->
+    <section id="gallery" class="gallery_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>Best Pictures Of Our PG's</h6>
+                    <h3>Our Gallery</h3>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row g-0">
+                <div class="col-lg-3 col-md-6 gallery-item">
+                    <img decoding="async" src="#" class="img-fluid w-100">
+                    <div class="gallery-item-content"></div>
+                </div>
+                <div class="col-lg-3 col-md-6 gallery-item">
+                    <img decoding="async" src="#" class="img-fluid w-100">
+                    <div class="gallery-item-content"></div>
+                </div>
+                <div class="col-lg-3 col-md-6 gallery-item">
+                    <img decoding="async" src="#" class="img-fluid w-100">
+                    <div class="gallery-item-content"></div>
+                </div>
+                <div class="col-lg-3 col-md-6 gallery-item">
+                    <img decoding="async" src="#" class="img-fluid w-100">
+                    <div class="gallery-item-content"></div>
+                </div>
+                <div class="col-md-6 gallery-item">
+                    <img decoding="async" src="#" class="img-fluid w-100">
+                    <div class="gallery-item-content"> </div>
+                </div>
+                <div class="col-md-6 gallery-item">
+                    <img decoding="async" src="#" class="img-fluid w-100">
+                    <div class="gallery-item-content"> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section Exit -->
+
+
+    <!-- Pricing Section Exit  -->
+
+    <!-- Blog section -->
+    <!-- <section id="blog" class="blog_wrapper pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>Say Hello TO Our Visiters</h6>
+                    <h3>Our Blog</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card p-0 border-0 rounded-0">
+                        <img decoding="async" src="#" alt="">
+                        <div class="blog-content bg-white p-4">
+                            <h5 class="text-decoration-underline mb-4">Relax Zone</h5>
+                            <h6>By Admin - February 18, 2018</h6>
+                            <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, nostrum.
+                            </p>
+                            <a href="#" class="main-btn mt-2">Read More</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card p-0 border-0 rounded-0">
+                        <img decoding="async" src="#" alt="">
+                        <div class="blog-content bg-white p-4">
+                            <h5 class="text-decoration-underline mb-4">Relax Zone</h5>
+                            <h6>By Admin - February 18, 2018</h6>
+                            <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, nostrum.
+                            </p>
+                            <a href="#" class="main-btn mt-2">Read More</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="our-partner-slider mt-5">
+            <div class="container swiper our-partner">
+                <div class=" swiper-wrapper">
+                    <div class="swiper-slide"><img decoding="async" src="#"></div>
+                    <div class="swiper-slide"><img decoding="async" src="#"></div>
+                    <div class="swiper-slide"><img decoding="async" src="#"></div>
+                    <div class="swiper-slide"><img decoding="async" src="#"></div>
+                    <div class="swiper-slide"><img decoding="async" src="#"></div>
+                    <div class="swiper-slide"><img decoding="async" src="#"></div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+    <!-- Pricing Section Exit  -->
+
+    <!-- Footer section -->
+    <%- include('./Navbar/Footer.ejs') %>
+    <!-- Footer section exit -->
+
+    <!-- Bootstrap 5 JS CDN Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Custom Js Link -->
+    <script src="javascripts/script.js"></script>
+</body>
+
+</html>
+

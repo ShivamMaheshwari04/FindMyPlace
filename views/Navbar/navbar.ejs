@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5 CDN Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <!-- <title>Document</title> -->
+
+
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-white border-bottom border-body" data-bs-theme="dark">
+        <!-- Navbar content -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="../images/Images-Use/ContactUs/Logo-4.png" width="200px"
+                    height="50px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item text-black">
+                        <a class="nav-link active text-black" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-black" href="#">Properties</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-black" href="/aboutUs">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black" href="/contact">Contact Us</a>
+                    </li>
+                </ul>
+                <!--Buttons Here  -->
+
+                <% if (isLoggedIn) { %>
+                    <%- include('./Buttons/profile.ejs') %>
+                <% } else { %>
+                    <%- include('./Buttons/login.ejs') %>
+                <% } %>
+
+                                    <!--Buttons END Here  -->
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-- Navbar END -->
+</body>
+
+</html>

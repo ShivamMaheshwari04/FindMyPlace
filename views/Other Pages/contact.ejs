@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Bootstrap 5 CDN Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/Contact.css">
+    <!-- <link rel="stylesheet" href="css/responsive-style.css"> -->
+</head>
+<body>
+    <header class="header_wrapper">
+        <!-- Navbar Start -->
+        <%- include('../Navbar/navbar.ejs', { isLoggedIn : isLoggedIn}) %>
+        <!-- Navbar END -->
+    </header>
+
+    <section class="contact">
+        <div class="content">
+            <h2>Contact us</h2>
+            <p>Have any questions, feedback, or need assistance? We’d love to hear from you. Please reach out using one of the methods below, and we'll get back to you as soon as possible.</p>
+        </div>
+
+        <!-- Container for Contact Info and Form -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3" style="margin-right: 57px;">
+                    <div class="contactInfo">
+                        <div class="box">
+                            <div class="icon"></div> 
+                            <div class="text">
+                                <h3>Email</h3>
+                                <p><a href="mailto:Findmyplace@gmail.com" style="text-decoration:none;font-size: 1rem;">Findmyplace@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="icon"></div> 
+                            <div class="text">
+                                <h3>Phone</h3>
+                                <p><a href="tel:+917223018161" style="text-decoration:none;font-size: 1rem;">7223018161</a></p>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="icon"></div> 
+                            <div class="text">
+                                <h3>Address</h3>
+                                <p>MITS Gwalior,Gole ka Mandir Gwalior</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="contactForm">
+                        <form>
+                            <h2>Send Message</h2>
+                            <div class="inputBox">
+                                <input type="text" name="Name" placeholder="Name" required="required">
+                                
+                            </div>
+                            <div class="inputBox">
+                                <input type="email" name="Email" placeholder="Email" required="required">
+                                
+                            </div>
+                            <div class="inputBox">
+                                <textarea required="required" name="Message" maxlength="500" title="Only 500 Character" placeholder="Type your Message....." required="required"></textarea>
+                                <!-- <span></span> -->
+                            </div>
+                            <div class="inputBox">
+                                <input type="submit" name="" value="Send">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Bootstrap 5 JS CDN Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
