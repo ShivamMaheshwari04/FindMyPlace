@@ -38,7 +38,7 @@ Follow these instructions to set up and run the project on your local machine.
 2. **Navigate into the project directory:**
 
    ```bash
-   cd Find-My-Place
+   cd FindMyPlace
    ```
 
 3. **Install project dependencies:**
@@ -58,6 +58,7 @@ Follow these instructions to set up and run the project on your local machine.
      Create a `.env` file in the root of your project directory and add your MySQL database credentials:
 
      ```env
+     PORT = 3001
      DB_HOST=localhost
      DB_USER=your-username
      DB_PASSWORD=your-password
@@ -95,7 +96,7 @@ Follow these instructions to set up and run the project on your local machine.
        host: 'localhost', // Database host
        user: 'your-username', // Your MySQL username
        password: 'your-password', // Your MySQL password
-       database: 'your-database-name' // Your database name
+       database: 'your-database-name' || findmyplace // Your database name
      });
      ```
 
@@ -104,8 +105,15 @@ Follow these instructions to set up and run the project on your local machine.
    Open MySQL Workbench (or your preferred SQL client) and run the following SQL queries to create the necessary tables:
 
    ```sql
-   CREATE TABLE user (
-     user_id INT PRIMARY KEY,
+
+   <!-- Give Authorization if you create a project First Time in Workbench -->
+   ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password'
+   <!-- First Create Schema -->
+
+   CREATE SCHEMA findmyplace;
+
+   CREATE TABLE findmyplace.user (
+     user_id VARCHAR(25) PRIMARY KEY,
      u_name VARCHAR(255) NOT NULL,
      u_email VARCHAR(255) NOT NULL UNIQUE,
      u_city VARCHAR(50) NOT NULL,
@@ -113,12 +121,10 @@ Follow these instructions to set up and run the project on your local machine.
      u_phoneNo BIGINT NOT NULL,
      u_gender VARCHAR(15) NOT NULL,
      u_password VARCHAR(255) NOT NULL,
-     u_role VARCHAR(255) NOT NULL DEFAULT 'Student',
-     CHECK (u_role IN ('Student', 'Employee', 'Other'))
    );
 
-   CREATE TABLE Owner (
-     Owner_id INT PRIMARY KEY,
+   CREATE TABLE findmyplace.Owner (
+     Owner_id VARCHAR(25) PRIMARY KEY,
      o_name VARCHAR(255) NOT NULL,
      o_email VARCHAR(255) NOT NULL UNIQUE,
      o_city VARCHAR(50) NOT NULL,
@@ -128,9 +134,9 @@ Follow these instructions to set up and run the project on your local machine.
      o_password VARCHAR(255) NOT NULL
    );
 
-   CREATE TABLE pg_details (
-     pg_id INT PRIMARY KEY,
-     owner_id INT NOT NULL,
+   CREATE TABLE findmyplace.pg_details (
+     pg_id VARCHAR(25) PRIMARY KEY,
+     owner_id VARCHAR(25) NOT NULL,
      pg_name VARCHAR(70) NOT NULL,
      p_city VARCHAR(50) NOT NULL,
      p_address VARCHAR(155) NOT NULL,
