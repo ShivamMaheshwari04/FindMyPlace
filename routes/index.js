@@ -17,4 +17,5 @@ router.get('/', function(req, res, next) {
   // res.render('Home',{isLoggedIn})
 });
 
+
 module.exports = router;

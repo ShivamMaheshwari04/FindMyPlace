@@ -15,7 +15,7 @@ var userData = {
 }
 
 /* POST register data */
-router.post('/register', function(req, res, next) {
+router.post('/register', function (req, res, next) {
     const formData = req.body;
     const user = formData.userCategory;
 
@@ -30,29 +30,29 @@ router.post('/register', function(req, res, next) {
 
     // Execute the query
     connection.query(sql, [
-        formData.Username, 
-        formData.Name, 
-        formData.Email, 
-        formData.City, 
-        formData.State, 
-        formData.PhoneNo, 
-        formData.Gender, 
-        formData.Password, 
+        formData.Username,
+        formData.Name,
+        formData.Email,
+        formData.City,
+        formData.State,
+        formData.PhoneNo,
+        formData.Gender,
+        formData.Password,
     ], (err, result) => {
         if (err) {
             res.render('./Alerts/RegisterErr.ejs');
             console.error("Error:", err);
         } else {
-            userData ={
-                id : formData.Username, 
-                name: formData.Name, 
-                email: formData.Email, 
-                city: formData.City, 
-                state: formData.State, 
-                number: formData.PhoneNo, 
-                gender: formData.Gender, 
-                password: formData.Password, 
-        };
+            userData = {
+                id: formData.Username,
+                name: formData.Name,
+                email: formData.Email,
+                city: formData.City,
+                state: formData.State,
+                number: formData.PhoneNo,
+                gender: formData.Gender,
+                password: formData.Password,
+            };
             console.log("Registration successful : ", result);
             res.redirect('/');
         }

@@ -23,15 +23,15 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         Swal.fire({
-            icon: "success",
-            title: "Successfully",
-            text: "Feedback Received Successfully",
+            icon: "Fail",
+            title: "Failed",
+            text: "Failed to Update",
             // footer: '<a href="#">Why do I have this issue?</a>'
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log('User clicked OK button');
                 // Redirect to the '/' route
-                window.location.href = '/contact';
+                window.location.href = '/Dashboard';
             }
         });
 

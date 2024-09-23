@@ -27,57 +27,57 @@
 
         <!-- Container for Contact Info and Form -->
         <div class="container">
-            <div class="row">
-                <div class="col-md-3" style="margin-right: 57px;">
-                    <div class="contactInfo">
-                        <div class="box">
-                            <div class="icon"></div> 
-                            <div class="text">
-                                <h3>Email</h3>
-                                <p><a href="mailto:Findmyplace@gmail.com" style="text-decoration:none;font-size: 1rem;">Findmyplace@gmail.com</a></p>
+            <form action="/sendEmail" method="POST">
+                <div class="row">
+                    <div class="col-md-3" style="margin-right: 57px;">
+                        <div class="contactInfo">
+                            <div class="box">
+                                <div class="icon"></div>
+                                <div class="text">
+                                    <h3>Email</h3>
+                                    <p><a href="mailto:Findmyplace@gmail.com" style="text-decoration:none;font-size: 1rem;">Findmyplace@gmail.com</a></p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="icon"></div> 
-                            <div class="text">
-                                <h3>Phone</h3>
-                                <p><a href="tel:+917223018161" style="text-decoration:none;font-size: 1rem;">7223018161</a></p>
+        
+                            <div class="box">
+                                <div class="icon"></div>
+                                <div class="text">
+                                    <h3>Phone</h3>
+                                    <p><a href="tel:+917223018161" style="text-decoration:none;font-size: 1rem;">7223018161</a></p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="box">
-                            <div class="icon"></div> 
-                            <div class="text">
-                                <h3>Address</h3>
-                                <p>MITS Gwalior,Gole ka Mandir Gwalior</p>
+        
+                            <div class="box">
+                                <div class="icon"></div>
+                                <div class="text">
+                                    <h3>Address</h3>
+                                    <p>MITS Gwalior, Gole ka Mandir Gwalior</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="contactForm">
-                        <form>
+                    <div class="col-md-8">
+                        <div class="contactForm">
                             <h2>Send Message</h2>
                             <div class="inputBox">
-                                <input type="text" name="Name" placeholder="Name" required="required">
-                                
+                                <input type="text" name="Name" pattern="[A-Za-z\s]+" title="Please enter only alphabetic characters and spaces" placeholder="Name" required="required">
                             </div>
                             <div class="inputBox">
                                 <input type="email" name="Email" placeholder="Email" required="required">
-                                
                             </div>
                             <div class="inputBox">
-                                <textarea required="required" name="Message" maxlength="500" title="Only 500 Character" placeholder="Type your Message....." required="required"></textarea>
-                                <!-- <span></span> -->
+                                <input type="text" name="Subject" placeholder="Subject" required="required">
+                            </div>
+                            <div class="inputBox">
+                                <textarea required="required" name="description" maxlength="500" title="Only 500 Characters" placeholder="Type your Message....."></textarea>
                             </div>
                             <div class="inputBox">
                                 <input type="submit" name="" value="Send">
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
 

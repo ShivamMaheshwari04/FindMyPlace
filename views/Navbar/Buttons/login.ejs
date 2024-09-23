@@ -1,10 +1,8 @@
-
-
 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
     <!-- <button type="button" class="btn btn-danger">Left</button> -->
     <!-- <button type="button" class="btn btn-warning">Middle</button> -->
-    <button id="loginButton" type="button" class="btn btn-success" data-bs-toggle="modal"
-        data-bs-target="#Login" style="right: 10px;" >Log In</button>
+    <button id="loginButton" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Login"
+        style="right: 10px;">Log In</button>
 
     <!-- Log In Modals -->
     <div class="modal fade" id="Login" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -67,101 +65,108 @@
     <!-- Sign Up Modals -->
 
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#register">Sign Up</button>
-        <div class="modal fade" id="register" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="color: white;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign Up</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form class="row g-3" method="post" method="post" id="registrationForm" action="/register">
-                            <div class="d-flex flex-column mb-3">
-                                <label for="validationDefaultId" class="form-label" placeholder="XYZ@123">Username</label>
-                                <input type="text" class="form-control" id="validationDefaultId" required name="Username"
-                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{5,}"
-                                    title="Username must be contain at least one digit, one uppercase letter, one lowercase letter, and one special character and their length must be 8 characters">
-                            </div>
-                            <div class="d-flex flex-column mb-3">
-                                <label for="validationDefaultName" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="validationDefaultName" required name="Name" pattern="[A-Za-z]+" title="Please enter only alphabetic characters">
-                            </div>
-                            <!-- <div class="d-flex flex-column mb-3">
+    <div class="modal fade" id="register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true" style="color: white;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign Up</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" method="post" method="post" id="registrationForm" action="/register">
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefaultId" class="form-label" placeholder="XYZ@123">Username</label>
+                            <input type="text" class="form-control" id="validationDefaultId" required name="Username"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{5,}"
+                                title="Username must be contain at least one digit, one uppercase letter, one lowercase letter, and one special character and their length must be 8 characters">
+                        </div>
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefaultName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="validationDefaultName" required name="Name"
+                                pattern="[A-Za-z\s]+" title="Please enter only alphabetic characters and spaces">
+                        </div>
+
+                        <!-- <div class="d-flex flex-column mb-3">
                                 <label for="validationDefault02" class="form-label">Last name</label>
                                 <input type="text" class="form-control" id="validationDefault02" required name="Lname" pattern="[A-Za-z]+" title="Please enter only alphabetic characters">
                             </div> -->
-                            <div class="d-flex flex-column mb-3">
-                                <label for="validationDefaultEmail" class="form-label">Email</label>
-                                <div class="input-group">
-                                    <input type="Email" class="form-control" id="validationDefaultEmail" aria-describedby="inputGroupPrepend2" required name="Email">
-                                </div>
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefaultEmail" class="form-label">Email</label>
+                            <div class="input-group">
+                                <input type="Email" class="form-control" id="validationDefaultEmail"
+                                    aria-describedby="inputGroupPrepend2" required name="Email">
                             </div>
-                            <div class="d-flex flex-column mb-3">
-                                <label for="validationDefaultGender" class="form-label">Gender</label>
-                                <select class="form-select" id="validationDefaultGender" required name="Gender">
-                                    <option value="">Choose...</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <div class="d-flex flex-column mb-3">
-                                <label for="validationDefaultNumber" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="validationDefaultNumber" required name="PhoneNo" pattern="[6-9][0-9]{9}" maxlength="10" title="Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9">
-                            </div>
-                            <div class="d-flex flex-column mb-3">
-                                <label for="validationDefaultCity" class="form-label">City</label>
-                                <select class="form-select" id="validationDefaultCity" required name="City">
-                                    <option value="">Choose...</option>
-                                    <option value="Gwalior">Gwalior</option>
-                                </select>
-                            </div>
-                            <div class="d-flex flex-column mb-3">
-                                <label for="validationDefaultState" class="form-label">State</label>
-                                <select class="form-select" id="validationDefaultState" required name="State">
-                                    <option value="">Choose...</option>
-                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                </select>
-                            </div>
-                            <div class="d-flex flex-column mb-3">
-                                <label for="validationDefaultPassword" class="form-label">Password</label>
-                                <input type="Password" class="form-control" id="validationDefaultPassword" required name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Password must be at least 8 characters long and contain at least one digit, one uppercase letter, one lowercase letter, and one special character">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="validationDefaultCategory" class="form-label">User Category</label>
-                                <select class="form-select" id="validationDefaultCategory" name="userCategory" required>
-                                    <option selected value="User">User</option>
-                                    <option value="Owner">Owner</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                              <div class="form-check">
+                        </div>
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefaultGender" class="form-label">Gender</label>
+                            <select class="form-select" id="validationDefaultGender" required name="Gender">
+                                <option value="">Choose...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefaultNumber" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="validationDefaultNumber" required name="PhoneNo"
+                                pattern="[6-9][0-9]{9}" maxlength="10"
+                                title="Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9">
+                        </div>
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefaultCity" class="form-label">City</label>
+                            <select class="form-select" id="validationDefaultCity" required name="City">
+                                <option value="">Choose...</option>
+                                <option value="Gwalior">Gwalior</option>
+                            </select>
+                        </div>
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefaultState" class="form-label">State</label>
+                            <select class="form-select" id="validationDefaultState" required name="State">
+                                <option value="">Choose...</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            </select>
+                        </div>
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefaultPassword" class="form-label">Password</label>
+                            <input type="Password" class="form-control" id="validationDefaultPassword" required
+                                name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
+                                title="Password must be at least 8 characters long and contain at least one digit, one uppercase letter, one lowercase letter, and one special character">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="validationDefaultCategory" class="form-label">User Category</label>
+                            <select class="form-select" id="validationDefaultCategory" name="userCategory" required>
+                                <option selected value="User">User</option>
+                                <option value="Owner">Owner</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
                                 <label class="form-check-label" for="invalidCheck2">
-                                  Agree to terms and conditions
+                                    Agree to terms and conditions
                                 </label>
-                              </div>
                             </div>
-                            <div class="col-12">
-                              <button class="btn btn-primary" type="submit">Register</button>
-                            </div>
-                          </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary"   data-bs-toggle="modal" data-bs-target="#Login">Log In</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Login">Log
+                        In</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-        <!-- Sign Up Modals -->
     </div>
+    <!-- Sign Up Modals -->
+</div>
 
 
 <script>
-        console.log("Login");
+    console.log("Login");
     document.querySelector('.profile').style.display = 'none';
 
 </script>

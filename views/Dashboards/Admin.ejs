@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="stylesheets/Dashboard-css/Dashboard-2.css">
+    <link rel="stylesheet" href="stylesheets/Dashboard-css/Dashboard-1.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        nav {
+            width: 20%;
+            background-color: white;
+            color: black;
+            position: fixed;
+            height: 100%;
+        }
+
+        .content {
+            width: 80%;
+            margin-left: 20%;
+            padding: 20px;
+            background-color: #ecf0f3;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar-header img {
+            max-width: 50%;
+        }
+
+        .sidebar-header span {
+            font-size: 1.5em;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        ul.components {
+            padding: 20px 0;
+            list-style: none;
+        }
+
+        ul.components li {
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        ul.components li.active,
+        ul.components li:hover {
+            background-color: #caa169;
+            cursor: pointer;
+        }
+
+        ul.components li a {
+            color: black;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        ul.components li a .material-icons {
+            margin-right: 10px;
+        }
+
+        .profile-content {
+            width: 100%;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        .card-title {
+            text-align: center;
+        }
+
+        nav {
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        nav::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+
+        nav::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+        /* Default background color for profile content */
+        .profile-content {
+            background-color: #ecf0f3;
+        }
+
+        /* Remove background color when hovered over the Booking dropdown */
+        .profile-content.hovered {
+            background-color: transparent;
+        }
+
+        /* Add this CSS to your existing styles */
+        ul.components li.dropdown:hover~.content .profile-content {
+            background-color: transparent;
+            /* Remove the background color */
+        }
+
+        ul.components li.dropdown:hover~.content .profile-content .card {
+            background-color: #ecf0f3;
+            /* Ensure card background is not affected */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><a href="/Dashboard" style="text-decoration: none; color: black;"><img
+                            src="../images/Images-Use/ContactUs/Logo-4.png" class="img-fluid" /><span>Dashboard</span>
+                </h3></a>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="">
+                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>My Profile</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="material-icons">apps</i><span>Booking</span></a>
+                    <ul class="collapse list-unstyled menu" id="pageSubmenu2">
+                        <li><a href="#">View</a></li>
+                        <li><a href="#">Cancelled</a></li>
+                        <li><a href="#">Complete</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="material-icons">aspect_ratio</i><span>List PG's</span></a>
+                    <ul class="collapse list-unstyled menu" id="homeSubmenu1">
+                        <li><a href="#">Add</a></li>
+                        <li><a href="#">Manage</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="material-icons">equalizer</i><span>Rooms</span></a>
+                    <ul class="collapse list-unstyled menu" id="pageSubmenu3">
+                        <li><a href="#">Add</a></li>
+                        <li><a href="#">Manage</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="material-icons">aspect_ratio</i><span>Listed Users</span></a>
+                    <ul class="collapse list-unstyled menu" id="homeSubmenu2">
+                        <li><a href="#">Owners</a></li>
+                        <li><a href="#">Users</a></li>
+                    </ul>
+                </li>
+                </li>
+                <li>
+                    <a href="javascript:history.back()"><i class="material-icons">arrow_back</i><span>Back</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <div id="profile-content" class="profile-content">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Personal Details</h5>
+                        <a class="edit-link float-right" data-toggle="modal" href="#edit_personal_details">
+                            <!-- <i class="fa fa-edit mr-1"></i>Edit -->
+                        </a>
+                        <div class="row mt-5">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">Name :</p>
+                            <p class="col-sm-9"><%= userData.name %></p>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">User ID :</p>
+                            <p class="col-sm-3"><%= userData.id %></p>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">Email ID :</p>
+                            <p class="col-sm-9"><a href="<%= userData.email %>" class="__cf_email__" style="text-transform: none;"><%= userData.email %></a></p>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">Mobile No. :</p>
+                            <p class="col-sm-9"><%= userData.number %></p>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">Profile Category :</p>
+                            <p class="col-sm-9">Admin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for editing personal details -->
+            <div class="modal fade" id="edit_personal_details" aria-hidden="true" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Personal Details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/edit">
+                                <div class="row form-row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" class="form-control" value="<%= userData.name %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Mobile No.</label>
+                                            <input type="text" class="form-control" value="<%= userData.number %>">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email ID</label>
+                                            <input type="email" class="form-control" value="<%= userData.email %>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Modal -->
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="javascripts/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="javascripts/js/popper.min.js"></script>
+    <script src="javascripts/js/bootstrap.min.js"></script>
+    <script src="javascripts/js/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $('#content').toggleClass('active');
+            });
+
+            $('.more-button,.body-overlay').on('click', function () {
+                $('#sidebar,.body-overlay').toggleClass('show-nav');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const bookingDropdown = document.getElementById('booking-dropdown');
+            const profileContent = document.getElementById('profile-content');
+
+            bookingDropdown.addEventListener('mouseover', () => {
+                profileContent.classList.add('hovered');
+            });
+
+            bookingDropdown.addEventListener('mouseout', () => {
+                profileContent.classList.remove('hovered');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

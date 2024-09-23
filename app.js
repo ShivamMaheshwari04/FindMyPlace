@@ -16,6 +16,8 @@ var aboutUsRouter = require('./routes/about'); // About Us Page
 var registerRouter = require('./routes/register'); // Register
 var loginRouter = require('./routes/login'); // Login
 var logoutRouter = require('./routes/logout'); // Logout
+var sendMailRouter = require('./routes/sendmail'); // Logout
+var dashboardRouter = require('./routes/dashboard'); // Logout
 
 
 // view engine setup
@@ -46,6 +48,8 @@ app.use('/', registerRouter);
 app.use('/', loginRouter);
 app.use('/', logoutRouter);
 app.use('/', aboutUsRouter);
+app.use('/', sendMailRouter);
+app.use('/', dashboardRouter);
 // app.use('/AboutUs', registerRouter);
 
 

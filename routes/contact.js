@@ -1,5 +1,9 @@
 var express = require('express');
 var router = express.Router();
+const ejs = require('ejs');
+const path = require('path');
+const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 /* GET contact page. */
 router.get('/contact', function(req, res, next) {
@@ -14,5 +18,7 @@ router.get('/contact', function(req, res, next) {
   }
   // res.render('contact'); // File name in the views folder
 });
+
+
 
 module.exports = router;

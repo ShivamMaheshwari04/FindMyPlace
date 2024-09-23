@@ -51,12 +51,13 @@ router.post('/login', (req, res) => {
             userData = {
                 name: "admin",
                 id: "admin@123",
-                user_type: "admin",
+                user_type: "Admin",
                 token: true,
                 email: "NA",
                 address: "NA",
                 number: "NA",
             }
+            req.session.username = userData.id;
             res.render('Home.ejs', { userData,isLoggedIn : true });
             // res.send("Login");
         }
