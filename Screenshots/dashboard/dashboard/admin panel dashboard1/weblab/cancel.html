@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        nav {
+            width: 20%;
+            background-color: white;
+            color: black;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+
+        .content {
+            width: 80%;
+            margin-left: 20%;
+            padding: 20px;
+            background-color: #ecf0f3;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar-header img {
+            max-width: 50%;
+        }
+
+        .sidebar-header span {
+            font-size: 1.5em;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        ul.components {
+            padding: 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        ul.components li {
+            padding: 15px 20px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        ul.components li.active,
+        ul.components li:hover {
+            background-color: #caa169;
+            cursor: pointer;
+        }
+
+        ul.components li a {
+            color: black;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        ul.components li a .material-icons {
+            margin-right: 10px;
+        }
+
+        ul.components li ul.menu {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .main-content {
+            padding: 20px;
+            margin-left: 20%;
+            width: 80%;
+            background-color: #ecf0f3;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .profile-info i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .cancelled-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cancelled-item {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cancelled-item h2 {
+            color: #c0392b;
+        }
+
+        .cancelled-item p {
+            margin-bottom: 10px;
+        }
+
+        .go-back-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .go-back-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="sidebar-header">
+                <h3><img src="/rooms/Logo Page.png" class="img-fluid" /><span>Find My Place</span></h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="user.html" class="dashboard"><i class="material-icons">dashboard</i><span>My Profile</span></a>
+                </li>
+                <li class="active dropdown">
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="material-icons">apps</i><span>Booking</span></a>
+                    <ul class="collapse list-unstyled menu" id="pageSubmenu2">
+                        <li><a href="check.html">View</a></li>
+                        <li><a href="cancelled.html">Cancelled</a></li>
+                        <li><a href="#">Complete</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:history.back()"><i class="material-icons">arrow_back</i><span>Back</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <header>
+                <h1>Cancelled Bookings</h1>
+                <div class="profile-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>kashish@2003</span>
+                </div>
+            </header>
+
+            <section class="cancelled-list">
+                <!-- Cancelled Item 1 -->
+                <div class="cancelled-item">
+                    <h2>Booking Canceled</h2>
+                    <p>Booking ID: <a href="#">#B02</a></p>
+                    <p>Your booking for PG ID <a href="#">#PG02</a> has been canceled successfully.</p>
+                </div>
+            </section>
+
+            <a href="user.html" class="go-back-btn">Go Back to Profile</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Handle click event on submenu links
+            $('ul.menu li a').click(function () {
+                $('ul.menu li a').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

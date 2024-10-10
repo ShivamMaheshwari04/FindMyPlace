@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        nav {
+            width: 20%;
+            background-color: white;
+            color: black;
+            position: fixed;
+            height: 100%;
+        }
+
+        .content {
+            width: 80%;
+            margin-left: 20%;
+            padding: 20px;
+            background-color: #ecf0f3;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar-header img {
+            max-width: 50%;
+        }
+
+        .sidebar-header span {
+            font-size: 1.5em;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        ul.components {
+            padding: 20px 0;
+            list-style: none;
+        }
+
+        ul.components li {
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        ul.components li.active,
+        ul.components li:hover {
+            background-color: #caa169;
+            cursor: pointer;
+        }
+
+        ul.components li a {
+            color: black;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        ul.components li a .material-icons {
+            margin-right: 10px;
+        }
+
+        .profile-content {
+            width: 100%;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        .card-title {
+            text-align: center;
+        }
+
+        nav {
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        nav::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+
+        nav::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+        /* Custom CSS for submenu hover and active state */
+        ul.menu li a.active,
+        ul.menu li a:hover {
+            background-color: #caa169;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="sidebar-header">
+                <h3><img src="/rooms/Logo Page.png" class="img-fluid" /><span>Find My Place</span></h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>My Profile</span></a>
+                </li>
+                <!-- <li class="dropdown">
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="material-icons">apps</i><span>Booking</span></a>
+                    <ul class="collapse list-unstyled menu" id="pageSubmenu2">
+                         <li><a href="check.html">View</a></li> -->
+                        <!-- <li><a href="check.html?openMenu=true">View</a></li>
+
+                        <li><a href="#">Cancelled</a></li>
+                        <li><a href="#">Complete</a></li>
+                    </ul>
+                </li> --> 
+
+
+                <li class="dropdown">
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="material-icons">apps</i><span>Booking</span>
+                    </a>
+                    <ul class="collapse list-unstyled menu" id="pageSubmenu2">
+                        <li><a href="check.html?openMenu=true">View</a></li>
+                        <li><a href="cancel.html?openMenu=true">Cancelled</a></li>
+                        <li><a href="complete.html?openMenu=true">Complete</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="javascript:history.back()"><i class="material-icons">arrow_back</i><span>Back</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page content -->
+        <div class="content">
+            <div class="profile-content">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Personal Details</h5>
+                        <a class="edit-link float-right" data-toggle="modal" href="#edit_personal_details">
+                            <i class="fa fa-edit mr-1"></i>Edit
+                        </a>
+                        <div class="row mt-5">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">Name :</p>
+                            <p class="col-sm-9">David Alvarez</p>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">Date of Birth :</p>
+                            <p class="col-sm-3">24 Jul 1983</p>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">Email ID :</p>
+                            <p class="col-sm-9"><a href="#" class="__cf_email__">[email&#160;protected]</a></p>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">Mobile :</p>
+                            <p class="col-sm-9">305-310-5857</p>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-3 text-left mb-0 mb-sm-3">User Category :</p>
+                            <p class="col-sm-9">Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for editing personal details -->
+            <div class="modal fade" id="edit_personal_details" aria-hidden="true" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Personal Details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="row form-row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text" class="form-control" value="John">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input type="text" class="form-control" value="Doe">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email ID</label>
+                                            <input type="email" class="form-control" value="johndoe@example.com">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input type="text" value="Gwalior" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Mobile</label>
+                                            <input type="text" value="+1 202-555-0125" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>User Category</label>
+                                            <input type="text" value="Owner" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Modal -->
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Handle click event on submenu links
+            $('ul.menu li a').click(function () {
+                // Remove active class from all links
+                $('ul.menu li a').removeClass('active');
+                // Add active class to the clicked link
+                $(this).addClass('active');
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Check if the URL contains 'openMenu=true'
+            if (window.location.search.indexOf('openMenu=true') !== -1) {
+                $('#pageSubmenu2').collapse('show');  // Keep the dropdown open
+            }
+    
+            // Optional: Keep the active state for the clicked link
+            $('ul.menu li a').click(function () {
+                $('ul.menu li a').removeClass('active');  // Remove active class from all links
+                $(this).addClass('active');  // Add active class to the clicked link
+            });
+        });
+    </script>
+    
+
+</body>
+
+</html>

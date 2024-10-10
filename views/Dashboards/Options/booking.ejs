@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Change align-items to flex-start */
+    height: 100vh;
+  }
+  
+  .container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    margin-top: 20px; /* Increased margin for visibility */
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .room-details img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+    text-align: left;
+    font-weight: 500;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  </style>
+<body>
+
+  
+  <div class="container">
+    <h1>Booking Form</h1>
+
+    <!-- Room Details Section -->
+    <div class="room-details">
+      <h2 style="margin-bottom: 5px">Room Type: <span id="room-type"><%=details.room_type %></span></h2>
+      <img src="<%=details.img_1 %>" id="room-image" alt="Room Image">
+      <p>PG Address : <span><%=details.p_address %></span> </p>
+    </div>
+
+    <!-- Booking Form -->
+    <form id="bookingForm" action="/book/<%=details.r_id %>" method="post">
+      <label for="name">User Id</label>
+      <input type="text" id="user_id" name="user_id" value="<%=user_id %>" required disabled>
+
+      <label for="phoneNo">Phone Number:</label>
+      <input type="text" id="phoneNo" name="phoneNo" placeholder="Your Phone Number" required>
+      
+      <label for="date">Booking Date</label>
+      <input type="date" id="b_date" name="b_date" min="" required>
+
+      <label for="stayDuration">How long do you want to stay?</label>
+      <select id="stayDuration" name="stayTime">
+        <option value="2-3 Months">2-3 Months</option>
+        <option value="More than 3 Months">More than 3 Months</option>
+        <option value="More than 6 Months">More than 6 Months</option>
+        <option value="1 Year or more">1 Year or more</option>
+      </select>
+
+      <label for="amount">Amount (in ₹):</label>
+      <input type="text" id="amount" name="b_amount" value="<%=details.rent %>" disabled>
+      <input type="hidden" name="b_amount" value="<%= details.rent %>">
+      
+      <button type="submit" style="margin-bottom: 10px;">Book Now</button>
+      <button type="back" onclick="window.location.href='/listing/<%=details.pg_id%>'" style="background-color: red;">Back</button>
+    </form>
+  </div>
+
+  <script>
+  
+  // Handle form submission
+//   document.getElementById('bookingForm').addEventListener('submit', function(event) {
+//     event.preventDefault(); // Prevent form from submitting to a server
+    
+//     const name = document.getElementById('name').value;
+//     const email = document.getElementById('email').value;
+//     const city = document.getElementById('city').value;
+//     const roomType = document.getElementById('roomType').value;
+  
+//     alert(`Thank you for booking, ${name}! You have booked a ${roomType} room in ${city}. We will contact you via ${email}.`);
+//   });
+  
+  // Set the min attribute for date input to only allow upcoming dates
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById("b_date").setAttribute("min", today);
+  </script>
+</body>
+</html>

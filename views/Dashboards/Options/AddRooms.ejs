@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* General body styling */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* Container for the form */
+
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+/* Form labels */
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* Form input fields, select dropdowns, and textarea */
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+
+/* Input field focus effect */
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+
+/* Dropdown styling */
+
+select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2210%22 height%3D%225%22 viewBox%3D%220 0 10 5%22%3E%3Cpath fill%3D%22%23007bff%22 d%3D%22M0 0l5 5 5-5z%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+}
+
+
+/* Submit button */
+
+input[type="submit"],button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Hover effect for the submit button */
+
+input[type="submit"]:hover,button {
+    background-color: #0056b3;
+}
+
+
+/* Success message */
+
+#message {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #28a745;
+}
+
+
+/* Responsive form adjustments */
+
+@media (max-width: 500px) {
+    .form-container {
+        width: 100%;
+        margin: 20px;
+        padding: 20px;
+        }
+    input[type="submit"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+</style>
+<body>
+    <div class="form-container">
+        <h2>Add Room</h2>
+        <form id="roomForm" action="/add-rooms" method="post">
+            <!-- PG ID mandatory -->
+            <!--<label for="pgId">PG ID:</label>
+            <input type="text" id="pgId" name="pgId" placeholder="Enter PG ID" required><br>-->
+
+            <!-- R_ID disabled (Room ID auto-generated or system-assigned) -->
+            <label for="roomId">Room ID:</label>
+            <input type="text" id="roomId" name="r_id" value="<%= r_id %>" disabled><br>
+
+            <!-- Dropdown for Room Type -->
+            <label for="roomType">Room Type:</label>
+            <select id="roomType" name="room_type" required>
+                <option value="">Select Room Type</option>
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+            </select><br>
+
+
+            <label for="pgdetails">Room Type:</label>
+            <select id="roomType" name="pg_id" required>
+                <option value="">Select PG</option>
+                <% managePg.forEach(function(pg) { %>
+                <option value="<%= pg.pg_id %>"><%= pg.pg_id %> - <%= pg.pg_name %></option>
+                <% }) %>
+            </select><br>
+            <!-- Availability will accept a number -->
+            <label for="availability">Availability:</label>
+            <input type="number" id="availability" name="Availability" min="1" required><br>
+
+            <!-- Rent field -->
+            <label for="rent">Rent:</label>
+            <input type="number" id="rent" name="rent" required><br>
+
+            <!-- Description field with a word limit of 100 words -->
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required maxlength="600" placeholder="Enter up to 100 words"></textarea><br>
+
+            <input type="submit" value="Submit">
+            <button type="button" onclick="window.location.href='/Dashboard'" style="margin-top: 10px;">Back</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Booking Dashboard</title>
+    <!-- <link rel="stylesheet" href="book.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+    /* Apply box-sizing globally */
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Container for the entire layout */
+    .container {
+        display: flex;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Sidebar styling */
+    nav {
+        width: 250px; /* Fixed width for sidebar */
+        background-color: white;
+        color: black;
+        position: fixed;
+        height: 100%;
+    }
+
+    .sidebar-header {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .sidebar-header img {
+        max-width: 50%;
+    }
+
+    .sidebar-header span {
+        font-size: 1.5em;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+
+    /* Main content styling */
+    .main-content {
+        flex: 1;
+        margin-left: 250px; /* Add margin to avoid overlap with sidebar */
+        padding: 20px;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .profile-info {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+    }
+
+    .profile-info i {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .booking-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Booking item styling */
+    .booking-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-color: #f7f7f7;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .booking-info {
+        display: flex;
+    }
+
+    .pg-image img {
+        border-radius: 10px;
+        margin-right: 20px;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .horizontal-info {
+        display: flex;
+        gap: 15px;
+    }
+
+    .owner-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .owner-info p {
+        margin: 5px 0;
+    }
+
+    /* Button container placed at the right end */
+    .actions {
+        margin-left: auto;
+        display: flex;
+        gap: 10px; /* Small gap between buttons */
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .done-btn {
+        background-color: #27ae60;
+        color: white;
+    }
+
+    .cancel-btn {
+        background-color: #c0392b;
+        color: white;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    .pg-image img {
+        width: 80px; /* Set the width */
+        height: 80px; /* Set the height */
+        object-fit: cover; /* Ensures the image fits within the defined width and height without distortion */
+        border-radius: 10px;
+        margin-right: 20px;
+    }
+
+</style>
+<body>
+    <div class="container">
+
+        <nav>
+            <div class="sidebar-header">
+                <h3><img src="/rooms/Logo Page.png" class="img-fluid" /><span>Find My Place</span></h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>My Profile</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="material-icons">apps</i><span>Booking</span></a>
+                    <ul class="collapse list-unstyled menu" id="pageSubmenu2">
+                        <li><a href="#">View</a></li>
+                        <li><a href="#">Cancelled</a></li>
+                        <li><a href="#">Complete</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:history.back()"><i class="material-icons">arrow_back</i><span>Back</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <header>
+                <h1>PG Booking</h1>
+                <div class="profile-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Priya@2002</span>
+                </div>
+            </header>
+
+            <section class="booking-list">
+                <!-- Booking Item 1 -->
+                <div class="booking-item">
+                    <div class="booking-info">
+                        <div class="pg-image">
+                            <img src="hostel.avif" alt="PG Image">
+                        </div>
+                        <div class="details">
+                            <p>Booking ID: <a href="#">#B02</a></p>
+                            <p>Room ID: <a href="#">#R102</a></p>
+                            <p>PG ID: <a href="#">#PG02</a></p>
+                            <h3>Economy PG - Blue Sky Residency</h3>
+                            <p>Price: ₹8,500 per month</p>
+                        </div>
+                    </div>
+                    <div class="owner-info">
+                        <p>Owner Details</p>
+                        <p>Contact No.: <a href="tel:9876543211">9876543211</a></p>
+                        <p>Owner Name: Pooja Mehra</p>
+                        <p>PG Address: 45, Sector 22, Noida</p>
+                        <p>Booking Date: 10 October 2024</p>
+                    </div>
+                    <div class="actions">
+                        <button class="done-btn">Done</button>
+                        <button class="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+
+                <!-- Booking Item 2 -->
+                <div class="booking-item">
+                    <div class="booking-info">
+                        <div class="pg-image">
+                            <img src="hostel.avif" alt="PG Image">
+                        </div>
+                        <div class="details">
+                            <p>Booking ID: <a href="#">#B02</a></p>
+                            <p>Room ID: <a href="#">#R102</a></p>
+                            <p>PG ID: <a href="#">#PG02</a></p>
+                            <h3>Economy PG - Blue Sky Residency</h3>
+                            <p>Price: ₹8,500 per month</p>
+                        </div>
+                    </div>
+                    <div class="owner-info">
+                        <p>Owner Details</p>
+                        <p>Contact No.: <a href="tel:9876543211">9876543211</a></p>
+                        <p>Owner Name: Pooja Mehra</p>
+                        <p>PG Address: 45, Sector 22, Noida</p>
+                        <p>Booking Date: 10 October 2024</p>
+                    </div>
+                    <div class="actions">
+                        <button class="done-btn">Done</button>
+                        <button class="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</body>
+</html>

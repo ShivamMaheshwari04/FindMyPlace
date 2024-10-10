@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PG Website Design by Code4education</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Bootstrap 5 CDN Links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+  <!-- Custom File's Link -->
+  <!-- <link rel="stylesheet" href="style5.css"> -->
+  <!-- <link rel="stylesheet" href="css/responsive-style.css"> -->
+</head>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #e82574;
+  --primary-color-dark: #bc1c5c;
+  --text-dark: #0c0a09;
+  --text-light: #78716c;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --bg-white: #fff;
+  --bg-black: #000;
+  --secondary-text: #caa169;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__subheader {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--secondary-text);
+  position: relative;
+}
+
+.section__subheader::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translate(1rem, -50%);
+  height: 2px;
+  width: 4rem;
+  background-color: var(--secondary-text);
+}
+
+.section__header {
+  max-width: 600px;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 3rem;
+  color: var(--secondary-text);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--secondary-text);
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  outline: none;
+  border: none;
+}
+
+.btn:hover { 
+  background-color: green;
+} 
+
+.header {
+  background-image: url("assets/header.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header_wrapper .navbar {
+  padding: 0.9375rem 0;
+  background-color: var(--bg-white);
+  box-shadow: 0 0.5rem 0.375rem -0.375rem rgba(0, 0, 0, 0.4);
+}
+
+.header_wrapper .nav-item .nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+}
+
+.header_wrapper .nav-item .nav-link.active,
+.header_wrapper .nav-item .nav-link:hover {
+  color: var(--secondary-text);
+}
+
+.container-fluid.header {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.row {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header .col-md-6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.header .btn-primary {
+  background-color: var(--secondary-text);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 50px;
+}
+
+.header .btn-primary:hover {
+  background-color: #5b3603;
+}
+
+.header .text-primary {
+  color: var(--secondary-text);
+}
+
+.room__grid {
+  margin-top: 4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.room__card {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.room__card__image {
+  position: relative;
+}
+
+.room__card__icons {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.room__card__icons span {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 1.5rem;
+  background-color: var(--white);
+  border-radius: 100%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.room__card__icons span:nth-child(1) {
+  color: #f472b6;
+}
+
+.room__card__icons span:nth-child(2) {
+  color: #c084fc;
+}
+
+.room__card__icons span:nth-child(3) {
+  color: #60a5fa;
+}
+
+.room__card__details {
+  padding: 1rem;
+}
+
+.room__card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.room__card p {
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.room__card h5 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.room__card h5 span {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.banner__content {
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.banner__card {
+  text-align: center;
+  flex: 1 1 180px;
+}
+
+.banner__card h4 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.banner__card p {
+  color: var(--text-light);
+}
+
+@media (width > 576px) {
+  .room__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width > 768px) {
+  .room__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width > 1024px) {
+  .room__grid {
+    gap: 2rem;
+  }
+}
+
+</style>
+<body>
+  <!-- Navbar section -->
+  <header class="header_wrapper">
+    <!-- Navbar Start -->
+    <%- include('../../Navbar/navbar.ejs', { isLoggedIn : isLoggedIn}) %>
+        <!-- Navbar END -->
+</header>
+  <!-- Navbar section exit -->
+
+
+
+  <!-- Header Start -->
+  <!-- <div class="container-fluid header bg-white p-0">
+    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+      <div class="col-md-6 p-5 mt-lg-5">
+        <h1 class="display-5 animated fadeIn mb-4">Find A <span class="text-primary">Perfect PG</span> For Your
+          Comfortable Stay</h1>
+        <p class="animated fadeIn mb-4 pb-2">Explore the best PG accommodations for students and employees. Affordable,
+          secure, and convenient living spaces designed for your needs.</p>
+        <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Get Started</a>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Header End -->
+
+
+  <section class="section__container room__container">
+    <p class="section__subheader">OUR PG ROOMS</p>
+    <h2 class="section__header">Find the Perfect Stay for Students and Employees.</h2>
+    <div class="room__grid">
+      <!-- <div class="room__card">
+        <div class="room__card__image">
+          <img src="/rooms/room-1.jpg" alt="room" />
+          <div class="room__card__icons">
+            <span><i class="ri-heart-fill"></i></span>
+            <span><i class="ri-paint-fill"></i></span>
+            <span><i class="ri-shield-star-line"></i></span>
+          </div>
+        </div>
+        <div class="room__card__details">
+          <h4>Cozy Dormitory Bed</h4>
+          <p>
+            Share a comfortable dorm room with your PG mates, with individual lockers for added security.
+          </p>
+          <h5>Starting from <span>$29/night</span></h5>
+          <button class="btn">Book Now</button>
+        </div>
+      </div> -->
+      <% allListings.forEach(listing => { %>
+        <% if (listing.available_rooms_count > 0 ) { %>
+        <div class="room__card">
+          <div class="room__card__image">
+            <img src="<%= listing.img_1 %>" alt="room" />
+            <div class="room__card__icons">
+              <span><i class="ri-heart-fill"></i></span>
+              <span><i class="ri-paint-fill"></i></span>
+              <span><i class="ri-shield-star-line"></i></span>
+            </div>
+          </div>
+          <div class="room__card__details">
+            <h4><%= listing.pg_name %></h4>
+            <span><%= listing.p_city %></span>
+            <p>
+              Enjoy a comfortable stay at <%= listing.pg_name %>, located in <%= listing.p_city %>. Address: <%= listing.p_address %>.
+            </p>
+            <!-- <h5>Starting from <span>$49/night</span></h5> -->
+            <h5>PG Type:<span> <%= listing.pg_type %></span></h5>
+            <!-- Link to the details page with the listing ID -->
+            <a href="/listing/<%= listing.pg_id %>" class="btn">View Now</a>
+          </div>
+        </div>
+        <% } %>
+      <% }); %>
+      <!-- <div class="room__card">
+        <div class="room__card__image">
+          <img src="images/Images-Use/rooms/room-1.jpg" alt="room" />
+          <div class="room__card__icons">
+            <span><i class="ri-heart-fill"></i></span>
+            <span><i class="ri-paint-fill"></i></span>
+            <span><i class="ri-shield-star-line"></i></span>
+          </div>
+        </div>
+        <div class="room__card__details">
+          <h4>Deluxe Family Room</h4>
+          <p>
+            Spacious and perfect for students or employees, offering modern amenities and extra space for comfort.
+          </p>
+          <h5>Starting from <span>$99/night</span></h5>
+          <button class="btn">Book Now</button>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+
+
+
+  <!-- Bootstrap 5 JS CDN Links -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Custom Js Link -->
+  <script src="script.js"></script>
+
+
+
+</body>
+
+</html>

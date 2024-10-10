@@ -16,8 +16,14 @@ var aboutUsRouter = require('./routes/about'); // About Us Page
 var registerRouter = require('./routes/register'); // Register
 var loginRouter = require('./routes/login'); // Login
 var logoutRouter = require('./routes/logout'); // Logout
-var sendMailRouter = require('./routes/sendmail'); // Logout
-var dashboardRouter = require('./routes/dashboard'); // Logout
+var sendMailRouter = require('./routes/sendmail'); // Send Mail
+var dashboardRouter = require('./routes/dashboard'); // Dasboard Router
+var addPgRouter = require('./routes/addPg.js'); // Add Pg
+var addRoomsRouter = require('./routes/addRooms.js'); // Add Pg
+var managePgRouter = require('./routes/managePg.js'); // Manage Pg
+var listingPgRouter = require('./routes/listedPgs.js'); // Manage Pg
+var createBookingRouter = require('./routes/createBooking.js'); // Manage Pg
+var updateRoomsRouter = require('./routes/update.js'); // Manage Pg
 
 
 // view engine setup
@@ -50,6 +56,12 @@ app.use('/', logoutRouter);
 app.use('/', aboutUsRouter);
 app.use('/', sendMailRouter);
 app.use('/', dashboardRouter);
+app.use('/', addPgRouter);
+app.use('/', addRoomsRouter);
+app.use('/', managePgRouter);
+app.use('/', listingPgRouter);
+app.use('/', createBookingRouter);
+app.use('/', updateRoomsRouter);
 // app.use('/AboutUs', registerRouter);
 
 

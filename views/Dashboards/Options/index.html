@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <tbody>
+        <% manageRooms.forEach(function(pg) { %>
+            <tr>
+                <td class="pl-4">
+                    <%= pg.r_id %>
+                </td>
+                <td>
+                    <span class="text-muted">
+                        <%= pg.pg_id %>
+                    </span>
+                </td>
+                <td>
+                    <span class="text-muted">
+                        <%= pg.pg_name %>
+                    </span>
+                </td>
+                <td>
+                    <span class="text-muted">
+                        <%= pg.room_type %>
+                    </span><br>
+                    <span class="text-muted">Room</span>
+                </td>
+                <td>
+                    <span class="text-muted">
+                        <%= pg.rent %>
+                    </span><br>
+                </td>
+                <td>
+                    <span class="text-muted">
+                        <%= pg.availability %>
+                    </span><br>
+                </td>
+                <td>
+                    <span class="text-muted">
+                        <%= pg.Owner_id %>
+                    </span><br>
+                </td>
+                <td>
+                    <!-- Edit Button -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal<%= pg.r_id %>">
+                        Edit
+                    </button>
+    
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal<%= pg.r_id %>" tabindex="-1" role="dialog"
+                        aria-labelledby="modalLabel<%= pg.r_id %>" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel<%= pg.r_id %>">Edit Room Details</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="POST" action="/update">
+                                        <input type="hidden" name="r_id" value="<%= pg.r_id %>">
+    
+                                        <div class="form-group">
+                                            <label for="RoomID<%= pg.r_id %>">Room ID 
+                                                <span class="badge badge-secondary">Disabled</span>
+                                            </label>
+                                            <input type="text" class="form-control" id="roomId<%= pg.r_id %>" name="r_id"
+                                                value="<%= pg.r_id %>" disabled>
+                                        </div>
+    
+                                        <div class="form-group">
+                                            <label for="roomType<%= pg.r_id %>">Room Type</label>
+                                            <select class="form-control" id="roomType<%= pg.r_id %>" name="room_type">
+                                                <option value="Single" <%=pg.room_type==='Single' ? 'selected' : '' %>>Single</option>
+                                                <option value="Double" <%=pg.room_type==='Double' ? 'selected' : '' %>>Double</option>
+                                                <option value="Triple" <%=pg.room_type==='Triple' ? 'selected' : '' %>>Triple</option>
+                                            </select>
+                                        </div>
+    
+                                        <div class="form-group">
+                                            <label for="rent<%= pg.r_id %>">Rent</label>
+                                            <input type="number" class="form-control" id="rent<%= pg.r_id %>" name="rent"
+                                                value="<%= pg.rent %>">
+                                        </div>
+    
+                                        <div class="form-group">
+                                            <label for="description<%= pg.r_id %>">Description</label>
+                                            <input type="text" class="form-control" id="description<%= pg.r_id %>" name="description"
+                                                value="<%= pg.description %>">
+                                        </div>
+    
+                                        <div class="form-group">
+                                            <label for="availability<%= pg.r_id %>">Availability</label>
+                                            <input type="number" class="form-control" id="availability<%= pg.r_id %>" name="availability"
+                                                value="<%= pg.availability %>">
+                                        </div>
+    
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>

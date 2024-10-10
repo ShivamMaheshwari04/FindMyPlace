@@ -65,7 +65,7 @@ router.post('/login', (req, res) => {
             userData = {
                 error: true,
             }
-            // res.render('./Alerts/Warning.ejs');
+            res.render('./Alerts/Warning.ejs');
             // return;
             // res.render('index.ejs', { userData })
             console.log("Error")
