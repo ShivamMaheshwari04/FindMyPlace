@@ -104,76 +104,79 @@ Follow these instructions to set up and run the project on your local machine.
 
    Open MySQL Workbench (or your preferred SQL client) and run the following SQL queries to create the necessary tables:
 
-   ```sql
+```sql
+-- Give authorization if you create a project for the first time in Workbench
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password';
 
-   <!-- Give Authorization if you create a project First Time in Workbench -->
-   ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password'
-   <!-- First Create Schema -->
+-- First, create the schema
+CREATE SCHEMA findmyplace;
 
-   CREATE SCHEMA findmyplace;
+-- Create user table
+CREATE TABLE findmyplace.user (
+  user_id VARCHAR(25) PRIMARY KEY,
+  u_name VARCHAR(255) NOT NULL,
+  u_email VARCHAR(255) NOT NULL UNIQUE,
+  u_city VARCHAR(50) NOT NULL,
+  u_state VARCHAR(50) NOT NULL,
+  u_phoneNo BIGINT NOT NULL,
+  u_gender VARCHAR(15) NOT NULL,
+  u_password VARCHAR(255) NOT NULL
+);
 
-   CREATE TABLE findmyplace.user (
-     user_id VARCHAR(25) PRIMARY KEY,
-     u_name VARCHAR(255) NOT NULL,
-     u_email VARCHAR(255) NOT NULL UNIQUE,
-     u_city VARCHAR(50) NOT NULL,
-     u_State VARCHAR(50) NOT NULL,
-     u_phoneNo BIGINT NOT NULL,
-     u_gender VARCHAR(15) NOT NULL,
-     u_password VARCHAR(255) NOT NULL,
-   );
+-- Create owner table
+CREATE TABLE findmyplace.Owner (
+  owner_id VARCHAR(25) PRIMARY KEY,
+  o_name VARCHAR(255) NOT NULL,
+  o_email VARCHAR(255) NOT NULL UNIQUE,
+  o_city VARCHAR(50) NOT NULL,
+  o_state VARCHAR(50) NOT NULL,
+  o_contactNo BIGINT NOT NULL,
+  o_gender VARCHAR(15) NOT NULL,
+  o_password VARCHAR(255) NOT NULL
+);
 
-   CREATE TABLE findmyplace.Owner (
-     Owner_id VARCHAR(25) PRIMARY KEY,
-     o_name VARCHAR(255) NOT NULL,
-     o_email VARCHAR(255) NOT NULL UNIQUE,
-     o_city VARCHAR(50) NOT NULL,
-     o_State VARCHAR(50) NOT NULL,
-     o_contactNo BIGINT NOT NULL,
-     o_gender VARCHAR(15) NOT NULL,
-     o_password VARCHAR(255) NOT NULL
-   );
+-- Create PG details table
+CREATE TABLE findmyplace.pg_details (
+  pg_id VARCHAR(25) PRIMARY KEY,
+  owner_id VARCHAR(25) NOT NULL,
+  pg_name VARCHAR(70) NOT NULL,
+  p_city VARCHAR(50) NOT NULL,
+  p_address VARCHAR(155) NOT NULL,
+  p_state VARCHAR(50) NOT NULL,
+  p_contactNo BIGINT NOT NULL,
+  pincode BIGINT NOT NULL,
+  pg_type VARCHAR(255) NOT NULL,
+  FOREIGN KEY (owner_id) REFERENCES findmyplace.Owner(owner_id)
+);
 
-   CREATE TABLE findmyplace.pg_details (
-     pg_id VARCHAR(25) PRIMARY KEY,
-     owner_id VARCHAR(25) NOT NULL,
-     pg_name VARCHAR(70) NOT NULL,
-     p_city VARCHAR(50) NOT NULL,
-     p_address VARCHAR(155) NOT NULL,
-     p_State VARCHAR(50) NOT NULL,
-     p_contactNo BIGINT NOT NULL,
-     pincode BIGINT NOT NULL,
-     pg_type VARCHAR(255) NOT NULL,
-     FOREIGN KEY (owner_id) REFERENCES Owner(Owner_id)
-   );
-
-  CREATE TABLE booking  (
+-- Create booking table
+CREATE TABLE findmyplace.booking (
   b_id VARCHAR(25) PRIMARY KEY,
   r_id VARCHAR(25) NOT NULL,
   u_id VARCHAR(25) NOT NULL,
-  u_number bigint NOT NULL,
+  u_number BIGINT NOT NULL,
   b_amount DECIMAL(10, 2) NOT NULL,  -- For monetary values
   b_date DATE NOT NULL,
   stayTime VARCHAR(50) NOT NULL,
-  b_status ENUM('Pending', 'Confirmed', 'Cancelled') NOT NULL -- Restricting possible status values
-  );
+  b_status ENUM('Pending', 'Confirmed', 'Cancelled') NOT NULL  -- Restricting possible status values
+);
 
-  CREATE TABLE rooms (
+-- Create rooms table
+CREATE TABLE findmyplace.rooms (
   r_id INT PRIMARY KEY,
-  pg_id INT,
+  pg_id VARCHAR(25),
   availability INT,
   room_type VARCHAR(50),
   rent DECIMAL(10, 2),
   r_status VARCHAR(20),
   description TEXT
-  );
+);
 
-
--- Run this for Update Status of Rooms Automatically
+-- Run this for updating the status of rooms automatically
 DELIMITER $$
 
 CREATE TRIGGER check_room_availability
-BEFORE UPDATE ON rooms
+BEFORE UPDATE ON findmyplace.rooms
 FOR EACH ROW
 BEGIN
   IF NEW.availability > 0 THEN
@@ -184,8 +187,7 @@ BEGIN
 END$$
 
 DELIMITER ;
-
-   ```
+```
 
 ### Running the Application
 
