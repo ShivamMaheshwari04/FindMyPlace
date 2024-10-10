@@ -146,6 +146,45 @@ Follow these instructions to set up and run the project on your local machine.
      pg_type VARCHAR(255) NOT NULL,
      FOREIGN KEY (owner_id) REFERENCES Owner(Owner_id)
    );
+
+  CREATE TABLE booking  (
+  b_id VARCHAR(25) PRIMARY KEY,
+  r_id VARCHAR(25) NOT NULL,
+  u_id VARCHAR(25) NOT NULL,
+  u_number bigint NOT NULL,
+  b_amount DECIMAL(10, 2) NOT NULL,  -- For monetary values
+  b_date DATE NOT NULL,
+  stayTime VARCHAR(50) NOT NULL,
+  b_status ENUM('Pending', 'Confirmed', 'Cancelled') NOT NULL -- Restricting possible status values
+  );
+
+  CREATE TABLE rooms (
+  r_id INT PRIMARY KEY,
+  pg_id INT,
+  availability INT,
+  room_type VARCHAR(50),
+  rent DECIMAL(10, 2),
+  r_status VARCHAR(20),
+  description TEXT
+  );
+
+
+-- Run this for Update Status of Rooms Automatically
+DELIMITER $$
+
+CREATE TRIGGER check_room_availability
+BEFORE UPDATE ON rooms
+FOR EACH ROW
+BEGIN
+  IF NEW.availability > 0 THEN
+    SET NEW.r_status = 'Active';
+  ELSEIF NEW.availability = 0 THEN
+    SET NEW.r_status = 'Disabled';
+  END IF;
+END$$
+
+DELIMITER ;
+
    ```
 
 ### Running the Application
@@ -167,24 +206,12 @@ After setting up the database and configuring the connection:
 Include some screenshots to give a visual overview of your application:
 
 - **Home Page**:  
-  ![Home Page - 1 ](screenshots/home-page.png)
+  ![Home Page - 1 ](Screenshots/home-page.png)
 
-  ![Home Page - 2 ](screenshots/2.png)
+  ![About Us Page](Screenshots/2.png)
 
-
-
-- **Contact Us**:  
-  ![Search Results](screenshots/Contact.png)
-
-- **Search Results**:  
-  ![Search Results](screenshots/search-results.png)
-
-- **Property Details**:  
-  ![Property Details](screenshots/property-details.png)
-
-To see the application in action, watch the demo video:
-
-[![Watch the demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+- **Sign Up Page**:  
+  ![Sign Up Page](Screenshots/Signup.png)
 
 
 ### Troubleshooting
@@ -203,7 +230,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 For any questions or suggestions, please contact [Shivammaheshwari0401@gmail.com](mailto:Shivammaheshwari0401@gmail.com).
-
----
-
-Feel free to update the screenshots, video link, and contact information as needed!
