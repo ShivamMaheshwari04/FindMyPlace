@@ -94,7 +94,8 @@
       <input type="text" id="user_id" name="user_id" value="<%=user_id %>" required disabled>
 
       <label for="phoneNo">Phone Number:</label>
-      <input type="text" id="phoneNo" name="phoneNo" placeholder="Your Phone Number" required>
+      <!-- <input type="text" id="phoneNo" name="phoneNo" placeholder="Your Phone Number" required max="10" > -->
+      <input type="tel"  phoneNo" name="phoneNo" pattern="[6-9][0-9]{9}" maxlength="10" title="Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9" required>
       
       <label for="date">Booking Date</label>
       <input type="date" id="b_date" name="b_date" min="" required>

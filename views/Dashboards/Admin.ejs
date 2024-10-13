@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Dashboard</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="stylesheets/Dashboard-css/Dashboard-2.css">
@@ -143,6 +143,134 @@
             background-color: #ecf0f3;
             /* Ensure card background is not affected */
         }
+
+        /* Booking Item Styles */
+        .booking-item {
+            background-color: white;
+            /* Card background color */
+            border-radius: 10px;
+            /* Rounded corners */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for depth */
+            padding: 20px;
+            /* Padding inside the card */
+            margin-bottom: 20px;
+            /* Space between cards */
+            display: flex;
+            /* Flexbox for alignment */
+            justify-content: space-between;
+            /* Space between booking info and owner info */
+            align-items: flex-start;
+            /* Align items at the start */
+        }
+
+        .booking-info {
+            display: flex;
+            /* Flexbox for layout */
+            align-items: center;
+            /* Center items vertically */
+            flex: 1;
+            /* Allow it to take available space */
+        }
+
+        .pg-image img {
+            width: 80px;
+            /* Image width */
+            height: 80px;
+            /* Image height */
+            object-fit: cover;
+            /* Cover the area without distortion */
+            border-radius: 10px;
+            /* Round the image corners */
+            margin-right: 20px;
+            /* Space between image and details */
+        }
+
+        .details {
+            display: flex;
+            /* Flexbox for layout */
+            flex-direction: column;
+            /* Stack details vertically */
+        }
+
+        .owner-info {
+            flex: 1;
+            /* Allow it to take available space */
+            margin-left: 20px;
+            /* Space between booking info and owner info */
+        }
+
+        .actions {
+            display: flex;
+            /* Flexbox for layout */
+            flex-direction: column;
+            /* Stack buttons vertically */
+            gap: 10px;
+            /* Space between buttons */
+        }
+
+        button {
+            padding: 10px;
+            /* Button padding */
+            border: none;
+            /* Remove border */
+            border-radius: 5px;
+            /* Round button corners */
+            font-size: 16px;
+            /* Button font size */
+        }
+
+        .done-btn {
+            background-color: #27ae60;
+            /* Green background for done button */
+            color: white;
+            /* White text color */
+        }
+
+        .cancel-btn {
+            background-color: #c0392b;
+            /* Red background for cancel button */
+            color: white;
+            /* White text color */
+        }
+
+        /* Button hover effect */
+        button:hover {
+            opacity: 0.9;
+            /* Slightly transparent on hover */
+        }
+
+        .main-content {
+            padding: 20px;
+            /* Add some padding for aesthetics */
+        }
+
+        /* Container for booking section to enable scrolling */
+        #bookingSection {
+            max-height: 85vh;
+            /* Set a maximum height to enable scrolling */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            border: none;
+            /* Optional: Add a border for visual separation */
+            border-radius: 5px;
+            /* Optional: Rounded corners */
+            margin-top: 20px;
+            /* Space between header and content */
+        }
+
+        /* Styling for each booking item */
+        .booking-item {
+            border-bottom: 1px solid #e0e0e0;
+            /* Add a separator between items */
+            padding: 15px;
+            /* Add padding around the booking item */
+        }
+
+        .booking-item:last-child {
+            border-bottom: none;
+            /* Remove border for the last item */
+        }
     </style>
 </head>
 
@@ -150,48 +278,42 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><a href="/Dashboard" style="text-decoration: none; color: black;"><img
-                            src="../images/Images-Use/ContactUs/Logo-4.png" class="img-fluid" /><span>Dashboard</span>
-                </h3></a>
+                <h3>
+                    <a href="/Dashboard" style="text-decoration: none; color: black;">
+                        <img src="../images/Images-Use/ContactUs/Logo-4.png" class="img-fluid" />
+                        <span>Dashboard</span>
+                    </a>
+                </h3>
             </div>
             <ul class="list-unstyled components">
-                <li class="">
-                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>My Profile</span></a>
+                <li>
+                    <a href="#" class="dashboard" onclick="showProfile();"><i
+                            class="material-icons">dashboard</i><span>My Profile</span></a>
                 </li>
                 <li class="dropdown">
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">apps</i><span>Booking</span></a>
+                        <i class="material-icons">apps</i><span>Bookings</span></a>
                     <ul class="collapse list-unstyled menu" id="pageSubmenu2">
-                        <li><a href="#">View</a></li>
-                        <li><a href="#">Cancelled</a></li>
-                        <li><a href="#">Complete</a></li>
+                        <li><a href="#" onclick="showBookings();">Manage</a></li>
+                        <li><a href="#" onclick="showCancelled();">Cancelled</a></li>
+                        <li><a href="#" onclick="showCompleted();">Completed</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="material-icons">aspect_ratio</i><span>List PG's</span></a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                        <li><a href="#">Add</a></li>
-                        <li><a href="#">Manage</a></li>
+                        <li><a href="/add-pg">Add</a></li>
+                        <li><a href="/manage-pg">Manage</a></li>
                     </ul>
                 </li>
-
                 <li class="dropdown">
                     <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="material-icons">equalizer</i><span>Rooms</span></a>
                     <ul class="collapse list-unstyled menu" id="pageSubmenu3">
-                        <li><a href="#">Add</a></li>
-                        <li><a href="#">Manage</a></li>
+                        <li><a href="/add-rooms">Add</a></li>
+                        <li><a href="/manage-rooms">Manage</a></li>
                     </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">aspect_ratio</i><span>Listed Users</span></a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu2">
-                        <li><a href="#">Owners</a></li>
-                        <li><a href="#">Users</a></li>
-                    </ul>
-                </li>
                 </li>
                 <li>
                     <a href="/"><i class="material-icons">arrow_back</i><span>Back</span></a>
@@ -209,19 +331,28 @@
                         </a>
                         <div class="row mt-5">
                             <p class="col-sm-3 text-left mb-0 mb-sm-3">Name :</p>
-                            <p class="col-sm-9"><%= userData.name %></p>
+                            <p class="col-sm-9">
+                                Shivam
+                            </p>
                         </div>
                         <div class="row">
                             <p class="col-sm-3 text-left mb-0 mb-sm-3">User ID :</p>
-                            <p class="col-sm-3"><%= userData.id %></p>
+                            <p class="col-sm-3">
+                                admin@123
+                            </p>
                         </div>
                         <div class="row">
                             <p class="col-sm-3 text-left mb-0 mb-sm-3">Email ID :</p>
-                            <p class="col-sm-9"><a href="<%= userData.email %>" class="__cf_email__" style="text-transform: none;"><%= userData.email %></a></p>
+                            <p class="col-sm-9"><a href="<%= userData.email %>" class="__cf_email__"
+                                    style="text-transform: none;">
+                                    Shivammaheshwari0401@gmail.com
+                                </a></p>
                         </div>
                         <div class="row">
                             <p class="col-sm-3 text-left mb-0 mb-sm-3">Mobile No. :</p>
-                            <p class="col-sm-9"><%= userData.number %></p>
+                            <p class="col-sm-9">
+                                7223018161
+                            </p>
                         </div>
                         <div class="row">
                             <p class="col-sm-3 text-left mb-0 mb-sm-3">Profile Category :</p>
@@ -230,6 +361,190 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Booking Section -->
+            <div class="main-content" id="booking-content" style="display:none;">
+                <header>
+                    <h1 style="text-align: center;margin-bottom: 30px;">Booking</h1>
+                    <div class="profile-info">
+                        <i class="fas fa-user-circle"></i>
+                        <!-- <span>kashish@2003</span> -->
+                    </div>
+                </header>
+
+                <section class="booking-list" id="bookingSection">
+                    <!-- Booking Item 1 -->
+                    <% BookingData.forEach(booking=> { %>
+                        <% if (booking.b_status==='Pending' ) { %>
+                            <div class="booking-item">
+                                <div class="booking-info">
+                                    <div class="pg-image">
+                                        <img src="<%= booking.img_1 %>" alt="PG Image">
+                                    </div>
+                                    <div class="details">
+                                        <p><b>Booking ID: </b><a href="#">#<%= booking.bid %></a></p>
+                                        <p><b>Room ID: </b><a href="#">#<%= booking.rid %></a></p>
+                                        <p><b>PG ID: </b><a href="#">#<%= booking.pg_id %></a></p>
+                                        <p><b>PG Name: </b>
+                                            <%= booking.pg_name %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="owner-info">
+                                    <p><b>Details</b></p>
+                                    <p><b>User Name: </b>
+                                        <%= booking.user_id %>
+                                    </p>
+                                    <p><b>Owner id: </b>
+                                        <%= booking.owner_id %>
+                                    </p>
+                                    <p><b>Contact No.:</b> <a href="tel:<%= booking.u_phoneNo %>">
+                                            <%= booking.u_phoneNo %>
+                                        </a></p>
+                                    <p><b>User Name: </b>
+                                        <%= booking.u_name %>
+                                    </p>
+                                    <p><b>PG Address: </b>
+                                        <%= booking.p_address %>, <%= booking.p_city %>, Madhya Pradesh
+                                    </p>
+                                    <p><b>Booking Date:</b> <span>
+                                            <%= new Date(booking.b_date).toLocaleDateString('en-US', {year: 'numeric' ,
+                                                month: 'long' , day: 'numeric' }) %>
+                                        </span></p>
+                                </div>
+                                <div class="actions">
+                                    <button class="done-btn"
+                                        onclick="window.location.href='/done/<%= booking.bid %>'">Done</button>
+                                    <button class="cancel-btn"
+                                        onclick="window.location.href='/cancel/<%= booking.bid %>'">Cancel</button>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% }); %>
+
+                                    <!-- More booking items... -->
+                </section>
+            </div>
+
+
+            <!-- Completed booking Start  -->
+            <div class="main-content" id="completed-content" style="display:none;">
+                <header>
+                    <h1 style="text-align: center;margin-bottom: 30px;">Completed Booking</h1>
+                    <div class="profile-info">
+                        <i class="fas fa-user-circle"></i>
+                        <!-- <span>kashish@2003</span> -->
+                    </div>
+                </header>
+
+                <section class="booking-list" id="bookingSection">
+                    <!-- Booking Item 1 -->
+                    <% BookingData.forEach(booking=> { %>
+                        <% if (booking.b_status==='Confirmed' ) { %>
+                            <div class="booking-item">
+                                <div class="booking-info">
+                                    <div class="pg-image">
+                                        <img src="<%= booking.img_1 %>" alt="PG Image">
+                                    </div>
+                                    <div class="details">
+                                        <p><b>Booking ID: </b><a href="#">#<%= booking.bid %></a></p>
+                                        <p><b>Room ID: </b><a href="#">#<%= booking.rid %></a></p>
+                                        <p><b>PG ID: </b><a href="#">#<%= booking.pg_id %></a></p>
+                                        <p><b>PG Name: </b>
+                                            <%= booking.pg_name %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="owner-info">
+                                    <p><b>Details</b></p>
+                                    <p><b>User Name: </b>
+                                        <%= booking.user_id %>
+                                    </p>
+                                    <p><b>Owner Id: </b>
+                                        <%= booking.owner_id %>
+                                    </p>
+                                    <p><b>Contact No.:</b> <a href="tel:<%= booking.u_phoneNo %>">
+                                            <%= booking.u_phoneNo %>
+                                        </a></p>
+                                    <p><b>User Name: </b>
+                                        <%= booking.u_name %>
+                                    </p>
+                                    <p><b>PG Address: </b>
+                                        <%= booking.p_address %>, <%= booking.p_city %>, Madhya Pradesh
+                                    </p>
+                                    <p><b>Booking Date:</b> <span>
+                                            <%= new Date(booking.b_date).toLocaleDateString('en-US', {year: 'numeric' ,
+                                                month: 'long' , day: 'numeric' }) %>
+                                        </span></p>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% }); %>
+
+                                    <!-- More booking items... -->
+                </section>
+            </div>
+            <!-- Completed booking End -->
+
+            <!-- Cancelled Booking Start  -->
+            <div class="main-content" id="cancelled-content" style="display:none;">
+                <header>
+                    <h1 style="text-align: center;margin-bottom: 30px;">Cancelled Booking</h1>
+                    <div class="profile-info">
+                        <i class="fas fa-user-circle"></i>
+                        <!-- <span>kashish@2003</span> -->
+                    </div>
+                </header>
+
+                <section class="booking-list" id="bookingSection">
+                    <!-- Booking Item 1 -->
+                    <% BookingData.forEach(booking=> { %>
+                        <% if (booking.b_status==='Cancelled' ) { %>
+                            <div class="booking-item">
+                                <div class="booking-info">
+                                    <div class="pg-image">
+                                        <img src="<%= booking.img_1 %>" alt="PG Image">
+                                    </div>
+                                    <div class="details">
+                                        <p><b>Booking ID: </b><a href="#">#<%= booking.bid %></a></p>
+                                        <p><b>Room ID: </b><a href="#">#<%= booking.rid %></a></p>
+                                        <p><b>PG ID: </b><a href="#">#<%= booking.pg_id %></a></p>
+                                        <p><b>PG Name: </b>
+                                            <%= booking.pg_name %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="owner-info">
+                                    <p><b>User Details</b></p>
+                                    <p><b>User Name: </b>
+                                        <%= booking.user_id %>
+                                    </p>
+                                    <p><b>Owner Id: </b>
+                                        <%= booking.owner_id %>
+                                    </p>
+                                    <p><b>Contact No.:</b> <a href="tel:<%= booking.u_phoneNo %>">
+                                            <%= booking.u_phoneNo %>
+                                        </a></p>
+                                    <p><b>User Name: </b>
+                                        <%= booking.u_name %>
+                                    </p>
+                                    <p><b>PG Address: </b>
+                                        <%= booking.p_address %>, <%= booking.p_city %>, Madhya Pradesh
+                                    </p>
+                                    <p><b>Booking Date:</b> <span>
+                                            <%= new Date(booking.b_date).toLocaleDateString('en-US', {year: 'numeric' ,
+                                                month: 'long' , day: 'numeric' }) %>
+                                        </span></p>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% }); %>
+
+                                    <!-- More booking items... -->
+                </section>
+            </div>
+            <!-- Cancelled Booking END  -->
+
 
             <!-- Modal for editing personal details -->
             <div class="modal fade" id="edit_personal_details" aria-hidden="true" role="dialog">
@@ -256,7 +571,6 @@
                                             <input type="text" class="form-control" value="<%= userData.number %>">
                                         </div>
                                     </div>
-
                                     <div class="col-12 col-sm-6">
                                         <div class="form-group">
                                             <label>Email ID</label>
@@ -280,7 +594,58 @@
     <script src="javascripts/js/bootstrap.min.js"></script>
     <script src="javascripts/js/jquery-3.3.1.min.js"></script>
 
+
+
     <script type="text/javascript">
+
+        // Place this script in the script section of your EJS file or in a separate JS file
+
+        // Check if the page has been reloaded already
+        if (!sessionStorage.getItem('hasReloaded')) {
+            // Set a flag in sessionStorage to indicate that the page has been reloaded
+            sessionStorage.setItem('hasReloaded', 'true');
+
+            // Reload the page after 1 second (1000 milliseconds)
+            setTimeout(function () {
+                location.reload();
+            }, 1000); // 1000 milliseconds = 1 second
+        } else {
+            // If the page has already been reloaded, remove the flag for future visits
+            sessionStorage.removeItem('hasReloaded');
+        }
+
+        // Function to show the profile section
+        function showProfile() {
+            document.getElementById('profile-content').style.display = 'block'; // Show profile section
+            document.getElementById('booking-content').style.display = 'none';  // Hide booking section
+            document.getElementById('cancelled-content').style.display = 'none'; // Hide cancelled section
+            document.getElementById('completed-content').style.display = 'none'; // Hide completed section
+        }
+
+        // Function to show the bookings section
+        function showBookings() {
+            document.getElementById('profile-content').style.display = 'none';  // Hide profile section
+            document.getElementById('booking-content').style.display = 'block'; // Show booking section
+            document.getElementById('cancelled-content').style.display = 'none'; // Hide cancelled section
+            document.getElementById('completed-content').style.display = 'none'; // Hide completed section
+        }
+
+        // Function to show the cancelled bookings section
+        function showCancelled() {
+            document.getElementById('profile-content').style.display = 'none';  // Hide profile section
+            document.getElementById('booking-content').style.display = 'none';  // Hide booking section
+            document.getElementById('cancelled-content').style.display = 'block'; // Show cancelled section
+            document.getElementById('completed-content').style.display = 'none'; // Hide completed section
+        }
+
+        // Function to show the completed bookings section
+        function showCompleted() {
+            document.getElementById('profile-content').style.display = 'none';  // Hide profile section
+            document.getElementById('booking-content').style.display = 'none';  // Hide booking section
+            document.getElementById('cancelled-content').style.display = 'none'; // Hide cancelled section
+            document.getElementById('completed-content').style.display = 'block'; // Show completed section
+        }
+
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');

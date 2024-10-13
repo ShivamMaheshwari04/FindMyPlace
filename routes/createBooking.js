@@ -5,33 +5,25 @@ var connection = require('../Database/dbConnect');  // Database connection
 let b_id, r_id;
 
 // Define the route for booking with dynamic room ID (r_id in this case)
-router.get('/book/:roomId', function (req, res, next) {
+router.get('/book/:roomId/:ownerId', function (req, res, next) {
   const roomId = req.params.roomId;  // Extract the r_id (room ID) from the URL
-  console.log(`Fetching details for room_id: ${roomId}`);
+  const OwnerId = req.params.ownerId;  // Extract the r_id (room ID) from the URL
+  // console.log(`Fetching details for room_id: ${roomId}`);
 
   if (!req.session.username) {
     return res.render('./Alerts/LoginFirst.ejs');
   }
+  if (req.session.username === OwnerId) {
+    return res.render('./Alerts/NotAuthorize.ejs');
+  }
+  
 
   // Query the database to join pg_details, Owner, and rooms tables
-  const query = `
-    SELECT 
-      rooms.*, 
-      pg_details.*, 
-      Owner.owner_id, 
-      Owner.o_email 
-    FROM 
-      findmyplace.pg_details 
-    INNER JOIN 
-      findmyplace.Owner ON pg_details.owner_id = Owner.Owner_id  
-    INNER JOIN 
-      findmyplace.rooms ON rooms.pg_id = pg_details.pg_id  
-    WHERE 
-      rooms.r_id = ?;
-  `;
+  const query = `SELECT rooms.*, pg_details.*, Owner.owner_id, Owner.o_email FROM findmyplace.pg_details INNER JOIN findmyplace.Owner ON pg_details.owner_id = Owner.Owner_id  INNER JOIN findmyplace.rooms ON rooms.pg_id = pg_details.pg_id  WHERE rooms.r_id = ?;`
 
   // Execute the SQL query
   connection.query(query, [roomId], function (err, result) {
+
     r_id = roomId;
     if (err) {
       console.error('Database error:', err);
